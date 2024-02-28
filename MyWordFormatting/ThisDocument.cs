@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Microsoft.Office.Tools.Word;
-using Microsoft.VisualStudio.Tools.Applications.Runtime;
-using Office = Microsoft.Office.Core;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace MyWordFormatting
 {
     public partial class ThisDocument
     {
+        const int WordTrue = -1;
+        const int WordFalse = 0;
+
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
         }
@@ -30,10 +24,50 @@ namespace MyWordFormatting
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(ThisDocument_Startup);
-            this.Shutdown += new System.EventHandler(ThisDocument_Shutdown);
+            applyBoldFont.Click += new System.EventHandler(applyBoldFont_Click);
+            applyItalicFont.Click += new System.EventHandler(applyItalicFont_Click);
+            applyUnderlineFont.Click += new System.EventHandler(applyUnderlineFont_Click);
+            Startup += new System.EventHandler(ThisDocument_Startup);
+            Shutdown += new System.EventHandler(ThisDocument_Shutdown);
+
         }
 
         #endregion
+
+        private void applyBoldFont_Click(object sender, EventArgs e)
+        {
+            if (applyBoldFont.Checked == true)
+            {
+                fontText.Bold = WordTrue;
+            }
+            else
+            {
+                fontText.Bold = WordFalse;
+            }
+        }
+
+        private void applyItalicFont_Click(object sender, EventArgs e)
+        {
+            if (applyItalicFont.Checked == true)
+            {
+                fontText.Italic = WordTrue;
+            }
+            else
+            {
+                fontText.Italic = WordFalse;
+            }
+        }
+
+        private void applyUnderlineFont_Click(object sender, EventArgs e)
+        {
+            if (applyUnderlineFont.Checked == true)
+            {
+                fontText.Underline = Word.WdUnderline.wdUnderlineSingle;
+            }
+            else
+            {
+                fontText.Underline = Word.WdUnderline.wdUnderlineNone;
+            }
+        }
     }
 }
