@@ -138,6 +138,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <EmbeddedResource Include="ThisDocument.resx">
+      <DependentUpon>ThisDocument.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="MyWordFormatting.docx" />
     <Compile Include="ThisDocument.cs">
       <DependentUpon>MyWordFormatting.docx</DependentUpon>
