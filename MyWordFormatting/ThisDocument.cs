@@ -14,6 +14,9 @@ namespace MyWordFormatting
 {
     public partial class ThisDocument
     {
+        const int WordTrue = -1;
+        const int WordFalse = 0;
+
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
         }
@@ -30,10 +33,50 @@ namespace MyWordFormatting
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(ThisDocument_Startup);
-            this.Shutdown += new System.EventHandler(ThisDocument_Shutdown);
+            this.applyBoldFont.Click += new System.EventHandler(this.applyBoldFont_Click);
+            this.applyItalicFont.Click += new System.EventHandler(this.applyItalicFont_Click);
+            this.applyUnderlineFont.Click += new System.EventHandler(this.applyUnderlineFont_Click);
+            this.Startup += new System.EventHandler(this.ThisDocument_Startup);
+            this.Shutdown += new System.EventHandler(this.ThisDocument_Shutdown);
+
         }
 
         #endregion
+
+        private void applyBoldFont_Click(object sender, EventArgs e)
+        {
+            if (this.applyBoldFont.Checked == true)
+            {
+                this.fontText.Bold = WordTrue;
+            }
+            else
+            {
+                this.fontText.Bold = WordFalse;
+            }
+        }
+
+        private void applyItalicFont_Click(object sender, EventArgs e)
+        {
+            if (this.applyItalicFont.Checked == true)
+            {
+                this.fontText.Italic = WordTrue;
+            }
+            else
+            {
+                this.fontText.Italic = WordFalse;
+            }
+        }
+
+        private void applyUnderlineFont_Click(object sender, EventArgs e)
+        {
+            if (this.applyUnderlineFont.Checked == true)
+            {
+                this.fontText.Underline = Word.WdUnderline.wdUnderlineSingle;
+            }
+            else
+            {
+                this.fontText.Underline = Word.WdUnderline.wdUnderlineNone;
+            }
+        }
     }
 }

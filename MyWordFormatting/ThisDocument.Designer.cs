@@ -161,11 +161,6 @@ namespace MyWordFormatting {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void InitializeComponents() {
             // 
-            // ActionsPane
-            // 
-            this.ActionsPane.AutoSize = false;
-            this.ActionsPane.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            // 
             // applyBoldFont
             // 
             this.applyBoldFont.Name = "applyBoldFont";
@@ -180,6 +175,11 @@ namespace MyWordFormatting {
             // 
             this.applyUnderlineFont.Name = "applyUnderlineFont";
             this.applyUnderlineFont.Text = "Underline";
+            // 
+            // ActionsPane
+            // 
+            this.ActionsPane.AutoSize = false;
+            this.ActionsPane.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             // 
             // fontText
             // 
