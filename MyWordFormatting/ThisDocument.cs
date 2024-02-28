@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Microsoft.Office.Tools.Word;
-using Microsoft.VisualStudio.Tools.Applications.Runtime;
-using Office = Microsoft.Office.Core;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace MyWordFormatting
@@ -33,11 +24,11 @@ namespace MyWordFormatting
         /// </summary>
         private void InternalStartup()
         {
-            this.applyBoldFont.Click += new System.EventHandler(this.applyBoldFont_Click);
-            this.applyItalicFont.Click += new System.EventHandler(this.applyItalicFont_Click);
-            this.applyUnderlineFont.Click += new System.EventHandler(this.applyUnderlineFont_Click);
-            this.Startup += new System.EventHandler(this.ThisDocument_Startup);
-            this.Shutdown += new System.EventHandler(this.ThisDocument_Shutdown);
+            applyBoldFont.Click += new System.EventHandler(applyBoldFont_Click);
+            applyItalicFont.Click += new System.EventHandler(applyItalicFont_Click);
+            applyUnderlineFont.Click += new System.EventHandler(applyUnderlineFont_Click);
+            Startup += new System.EventHandler(ThisDocument_Startup);
+            Shutdown += new System.EventHandler(ThisDocument_Shutdown);
 
         }
 
@@ -45,37 +36,37 @@ namespace MyWordFormatting
 
         private void applyBoldFont_Click(object sender, EventArgs e)
         {
-            if (this.applyBoldFont.Checked == true)
+            if (applyBoldFont.Checked == true)
             {
-                this.fontText.Bold = WordTrue;
+                fontText.Bold = WordTrue;
             }
             else
             {
-                this.fontText.Bold = WordFalse;
+                fontText.Bold = WordFalse;
             }
         }
 
         private void applyItalicFont_Click(object sender, EventArgs e)
         {
-            if (this.applyItalicFont.Checked == true)
+            if (applyItalicFont.Checked == true)
             {
-                this.fontText.Italic = WordTrue;
+                fontText.Italic = WordTrue;
             }
             else
             {
-                this.fontText.Italic = WordFalse;
+                fontText.Italic = WordFalse;
             }
         }
 
         private void applyUnderlineFont_Click(object sender, EventArgs e)
         {
-            if (this.applyUnderlineFont.Checked == true)
+            if (applyUnderlineFont.Checked == true)
             {
-                this.fontText.Underline = Word.WdUnderline.wdUnderlineSingle;
+                fontText.Underline = Word.WdUnderline.wdUnderlineSingle;
             }
             else
             {
-                this.fontText.Underline = Word.WdUnderline.wdUnderlineNone;
+                fontText.Underline = Word.WdUnderline.wdUnderlineNone;
             }
         }
     }
